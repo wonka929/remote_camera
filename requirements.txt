@@ -1,0 +1,6 @@
+picamera
+RPi.GPIO
+time
+datetime
+json
+ftplib

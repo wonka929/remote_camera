@@ -1,0 +1,23 @@
+{
+   "CAM_vflip": false, 
+   "CAM_brightness": 50, 
+   "CAM_exposure_mode": "auto", 
+   "CAM_saturation": 0, 
+   "CAM_sharpness": 30, 
+   "CAM_color_effects": null, 
+   "CAM_hflip": false, 
+   "CAM_resolution": [
+      1200, 
+      600
+   ], 
+   "CAM_ISO": 500, 
+   "CAM_exposure_compensation": 0, 
+   "CAM_video_stabilization": false, 
+   "CAM_awb_mode": "auto", 
+   "COMMITTENTE": "", 
+   "CPUID": "Resin", 
+   "CAM_image_effect": "none", 
+   "CAM_contrast": 10, 
+   "CAM_rotation": 0, 
+   "CAM_meter_mode": "average"
+}

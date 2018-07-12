@@ -18,7 +18,7 @@ CODE= COMMITTENTE + '_' + CPUID
 
 
 def PiCameraFilter(camera):
-    print 'Setting camera filter'
+    print('Setting camera filter')
     camera.brightness = CAM_brightness #0>freddo 100>caldo
     camera.sharpness = CAM_sharpness #0>freddo 100>caldo
     camera.contrast = CAM_contrast
@@ -41,7 +41,7 @@ def TakePhoto(CODE,directory):
     camera = PiCamera()
     camera = PiCameraFilter(camera)
     filename = datetime.now().strftime("%Y%m%d%H%M_" + CODE + ".jpg")
-    print 'Taking foto '+ str(filename)
+    print('Taking foto '+ str(filename))
     camera.capture(directory+ '/'+filename)
     camera.close()
 
@@ -54,17 +54,17 @@ def Clean(SendDirectory):
 
 def SendFTP(directory,SendDirectory):
    for filename in os.listdir(directory):
-       print 'Sending image:\n'+directory
+       print('Sending image:\n'+directory)
        session = ftplib.FTP('104.40.239.18','waterberry','waterberry_ftp_vm')
        immagine = open(directory+'/'+filename,'rb')
-       print directory+'/'+filename
+       print(directory+'/'+filename)
        session.storbinary('STOR '+ filename, immagine)
-       print 'STOR '+ filename
+       print('STOR '+ filename)
        immagine.close()
        session.quit()
-       print 'Immagine inviata...'
+       print('Immagine inviata...')
        os.rename(directory + '/' + filename,SendDirectory + '/' + filename)
-       print 'Image moved to sent folder'
+       print('Image moved to sent folder')
 
 	   
 os.makedirs('/data/Nuove_Foto', exist_ok=True)
@@ -82,11 +82,11 @@ GPIO.setup(18,GPIO.OUT)
 
 GPIO.output(21,GPIO.HIGH)
 GPIO.output(18,GPIO.HIGH)
-print 'Flash on'
+print('Flash on')
 TakePhoto(CODE,directory)
-print 'acquiring image'
+print('acquiring image')
 time.sleep(1)
-print 'Flash off'
+print('Flash off')
 GPIO.output(21,GPIO.LOW)
 GPIO.output(18,GPIO.LOW)
 SendFTP(directory,SendDirectory)

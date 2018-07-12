@@ -8,6 +8,12 @@ ENV INITSYSTEM on
 COPY ./requirements.txt /requirements.txt
 RUN READTHEDOCS=True pip install -r /requirements.txt
 
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+
+	cron \
+
+	&& apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 

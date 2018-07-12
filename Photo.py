@@ -46,10 +46,10 @@ def TakePhoto(CODE,directory):
 	camera.close()
 
 
-def Clean(SendDirectory):
-	for elem in os.listdir(SendDirectory):
-		if (str(elem.split('_')[0])[:8]) <> (datetime.now().strftime("%Y%m%d")):
-			os.remove(SendDirectory+'/'+elem)
+# def Clean(SendDirectory):
+	# for elem in os.listdir(SendDirectory):
+		# if (str(elem.split('_')[0])[:8]) <> (datetime.now().strftime("%Y%m%d")):
+			# os.remove(SendDirectory+'/'+elem)
 
 
 def SendFTP(directory,SendDirectory):
@@ -70,7 +70,7 @@ def SendFTP(directory,SendDirectory):
 print('Starting')
 directory= '/data/Nuove_Foto'
 SendDirectory = '/data/Foto_Inviate'
-Clean(SendDirectory)
+# Clean(SendDirectory)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(21,GPIO.OUT)
